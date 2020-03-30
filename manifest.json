@@ -9,7 +9,7 @@
         "Protocols"
       ],
       "description": "Chemical synthesis protocol",
-      "version": "0.0.1",
+      "version": "0.0.3",
       "command_string": "python -m chem_synth",
       "inputs": {
         "reaction_setup": {
@@ -31,8 +31,7 @@
             "eln_number": {
               "type": "string",
               "label": "ELN Number",
-              "description": "ELN Number",
-              "default": "cellar_door"
+              "description": "ELN Number"
             }
           }
         },
@@ -194,7 +193,7 @@
         "parameters": {
           "reaction_setup": {
             "type": "amide_coupling",
-            "eln_number": "foo"
+            "eln_number": "cellar_door"
           },
           "reagent_details": [
             {
