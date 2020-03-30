@@ -16,7 +16,7 @@
           "type": "group",
           "label": "Reaction Setup",
           "inputs": {
-            "reaction_type": {
+            "type": {
               "type": "choice",
               "label": "Reaction type",
               "default": "amide_coupling",
@@ -40,16 +40,22 @@
           "type": "group+",
           "label": "Reagents",
           "inputs": {
-            "reagent_moles": {
+            "moles": {
               "type": "decimal",
               "label": "Moles",
               "description": "Moles",
               "default": 42.5
             },
-            "reagent_container": {
+            "container": {
               "type": "container",
               "label": "Container",
               "description": "Container"
+            },
+            "addition_order": {
+              "type": "integer",
+              "label": "Addition Order",
+              "description": "Addition order of the reagent",
+              "default": 1
             }
           }
         },
@@ -57,11 +63,17 @@
           "type": "group",
           "label": "Solvent",
           "inputs": {
-            "solvent_volume": {
+            "volume": {
               "type": "volume",
               "label": "Volume",
               "description": "Volume",
               "default": "10:milliliter"
+            },
+            "addition_order": {
+              "type": "integer",
+              "label": "Addition Order",
+              "description": "Addition order of the reagent",
+              "default": 2
             }
           }
         },
@@ -69,16 +81,22 @@
           "type": "group",
           "label": "Base",
           "inputs": {
-            "base_container": {
+            "container": {
               "type": "container",
               "label": "Container",
               "description": "Container"
             },
-            "base_volume": {
+            "volume": {
               "type": "volume",
               "label": "Volume",
               "description": "Volume",
               "default": "10:milliliter"
+            },
+            "addition_order": {
+              "type": "integer",
+              "label": "Addition Order",
+              "description": "Addition order of the reagent",
+              "default": 3
             }
           }
         },
@@ -86,13 +104,13 @@
           "type": "group",
           "label": "Incubation Conditions",
           "inputs": {
-            "incubation_time": {
+            "time": {
               "type": "time",
               "label": "Time",
               "description": "Time",
               "default": "30:second"
             },
-            "incubation_temperature": {
+            "temperature": {
               "type": "temperature",
               "label": "Temperature",
               "description": "Temperature",
@@ -104,19 +122,19 @@
           "type": "group",
           "label": "End Product Storage",
           "inputs": {
-            "end_product_volume": {
+            "volume": {
               "type": "volume",
               "label": "Volume",
               "description": "Volume",
               "default": "10:milliliter"
             },
-            "end_product_temperature": {
+            "temperature": {
               "type": "temperature",
               "label": "Temperature",
               "description": "Temperature",
               "default": "4:celsius"
             },
-            "end_product_form": {
+            "form": {
               "type": "choice",
               "label": "Form",
               "default": "dmso_stock",
@@ -175,34 +193,38 @@
         },
         "parameters": {
           "reaction_setup": {
-            "reaction_type": "amide_coupling",
+            "type": "amide_coupling",
             "eln_number": "foo"
           },
           "reagent_details": [
             {
-              "reagent_moles": "1.2",
-              "reagent_container": "fake_source_container_reagent_1"
+              "moles": "1.2",
+              "container": "fake_source_container_reagent_1",
+              "addition_order": 1
             },
             {
-              "reagent_moles": "2.1",
-              "reagent_container": "fake_source_container_reagent_2"
+              "moles": "2.1",
+              "container": "fake_source_container_reagent_2",
+              "addition_order": 2
             }
           ],
           "solvent_details": {
-            "solvent_volume": "10:milliliter"
+            "volume": "10:milliliter",
+            "addition_order": 3
           },
           "base_details": {
-            "base_container": "fake_base_container",
-            "base_volume": "10:milliliter"
+            "container": "fake_base_container",
+            "volume": "10:milliliter",
+            "addition_order": 4
           },
           "incubation_conditions": {
-            "incubation_time": "10:second",
-            "incubation_temperature": "4:celsius"
+            "time": "10:second",
+            "temperature": "4:celsius"
           },
           "end_product_storage": {
-            "end_product_volume": "10:milliliter",
-            "end_product_temperature": "4:celsius",
-            "end_product_form": "dmso_stock"
+            "volume": "10:milliliter",
+            "temperature": "4:celsius",
+            "form": "dmso_stock"
           }
         }
       }

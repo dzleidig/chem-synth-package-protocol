@@ -1,5 +1,5 @@
 def chem_synth(protocol, params):
-    source_well = params["reagent_details"][0]["reagent_container"]
+    source_well = params["reagent_details"][0]["container"]
     protocol.spin(source_well, "500:g", "3:minutes")
 
 
