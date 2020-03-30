@@ -1,0 +1,206 @@
+{
+  "license": "MIT",
+  "format": "python",
+  "protocols": [
+    {
+      "name": "chem_synth",
+      "display_name": "Chemical Synthesis",
+      "categories": [
+        "Example Protocol"
+      ],
+      "description": "Chemical synthesis protocol",
+      "version": "0.0.1",
+      "command_string": "python -m chem_synth",
+      "inputs": {
+        "reaction_setup": {
+          "type": "group",
+          "label": "Reaction Setup",
+          "inputs": {
+            "reaction_type": {
+              "type": "choice",
+              "label": "Reaction type",
+              "default": "amide_coupling",
+              "description": "Choose reaction type",
+              "options": [
+                {
+                  "value": "amide_coupling",
+                  "name": "Amide Coupling"
+                }
+              ]
+            },
+            "eln_number": {
+              "type": "string",
+              "label": "ELN Number",
+              "description": "ELN Number"
+            }
+          }
+        },
+        "reagent_details": {
+          "type": "group+",
+          "label": "Reagents",
+          "inputs": {
+            "reagent_moles": {
+              "type": "decimal",
+              "label": "Moles",
+              "description": "Moles"
+            },
+            "reagent_container": {
+              "type": "container",
+              "label": "Container",
+              "description": "Container"
+            }
+          }
+        },
+        "solvent_details": {
+          "type": "group",
+          "label": "Solvent",
+          "inputs": {
+            "solvent_volume": {
+              "type": "volume",
+              "label": "Volume",
+              "description": "Volume",
+              "default": "10:milliliter"
+            }
+          }
+        },
+        "base_details": {
+          "type": "group",
+          "label": "Base",
+          "inputs": {
+            "base_container": {
+              "type": "container",
+              "label": "Container",
+              "description": "Container"
+            },
+            "base_volume": {
+              "type": "volume",
+              "label": "Volume",
+              "description": "Volume",
+              "default": "10:milliliter"
+            }
+          }
+        },
+        "incubation_conditions": {
+          "type": "group",
+          "label": "Incubation Conditions",
+          "inputs": {
+            "incubation_time": {
+              "type": "time",
+              "label": "Time",
+              "description": "Time"
+            },
+            "incubation_temperature": {
+              "type": "temperature",
+              "label": "Temperature",
+              "description": "Temperature"
+            }
+          }
+        },
+        "end_product_storage": {
+          "type": "group",
+          "label": "End Product Storage",
+          "inputs": {
+            "end_product_volume": {
+              "type": "volume",
+              "label": "Volume",
+              "description": "Volume",
+              "default": "10:milliliter"
+            },
+            "end_product_temperature": {
+              "type": "temperature",
+              "label": "Temperature",
+              "description": "Temperature"
+            },
+            "end_product_form": {
+              "type": "choice",
+              "label": "Form",
+              "default": "dmso_stock",
+              "description": "Form",
+              "options": [
+                {
+                  "value": "dmso_stock",
+                  "name": "DMSO Stock"
+                }
+              ]
+            }
+          }
+        }
+      },
+      "preview": {
+        "refs": {
+          "fake_source_container_reagent_1": {
+            "label": "Fake Reagent Container 1",
+            "type": "micro-2.0",
+            "store": "cold_20",
+            "cover": null,
+            "aliquots": {
+              "0": {
+                "name": "Fake Reagent 1 Aliquot",
+                "volume": "1800.0:microliter",
+                "properties": {}
+              }
+            }
+          },
+          "fake_source_container_reagent_2": {
+            "label": "Fake Reagent Container 2",
+            "type": "micro-2.0",
+            "store": "cold_20",
+            "cover": null,
+            "aliquots": {
+              "0": {
+                "name": "Fake Reagent 2 Aliquot",
+                "volume": "1800.0:microliter",
+                "properties": {}
+              }
+            }
+          },
+          "fake_base_container": {
+            "label": "FakeNBase Container",
+            "type": "micro-2.0",
+            "store": "cold_20",
+            "cover": null,
+            "aliquots": {
+              "0": {
+                "name": "Fake Base Aliquot",
+                "volume": "1800.0:microliter",
+                "properties": {}
+              }
+            }
+          }
+        },
+        "parameters": {
+          "reaction_setup": {
+            "reaction_type": "amide_coupling",
+            "eln_number": "foo"
+          },
+          "reagent_details": [
+            {
+              "reagent_moles": "1.2",
+              "reagent_container": "fake_source_container_reagent_1"
+            },
+            {
+              "reagent_moles": "2.1",
+              "reagent_container": "fake_source_container_reagent_2"
+            }
+          ],
+          "solvent_details": {
+            "solvent_volume": "10:milliliter"
+          },
+          "base_details": {
+            "base_container": "fake_base_container",
+            "base_volume": "10:milliliter"
+          },
+          "incubation_conditions": {
+            "incubation_time": "10:seconds",
+            "incubation_temperature": "4:celsius"
+          },
+          "end_product_storage": {
+            "end_product_volume": "10:milliliter",
+            "end_product_temperature": "4:celsius",
+            "end_product_form": "dmso_stock"
+          }
+        }
+      }
+    }
+  ]
+}
