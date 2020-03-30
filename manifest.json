@@ -3,10 +3,10 @@
   "format": "python",
   "protocols": [
     {
-      "name": "chem_synth",
+      "name": "ChemicalSynthesis",
       "display_name": "Chemical Synthesis",
       "categories": [
-        "Example Protocol"
+        "Protocols"
       ],
       "description": "Chemical synthesis protocol",
       "version": "0.0.1",
@@ -31,7 +31,8 @@
             "eln_number": {
               "type": "string",
               "label": "ELN Number",
-              "description": "ELN Number"
+              "description": "ELN Number",
+              "default": "cellar_door"
             }
           }
         },
@@ -42,7 +43,8 @@
             "reagent_moles": {
               "type": "decimal",
               "label": "Moles",
-              "description": "Moles"
+              "description": "Moles",
+              "default": 42.5
             },
             "reagent_container": {
               "type": "container",
@@ -87,12 +89,14 @@
             "incubation_time": {
               "type": "time",
               "label": "Time",
-              "description": "Time"
+              "description": "Time",
+              "default": "30:second"
             },
             "incubation_temperature": {
               "type": "temperature",
               "label": "Temperature",
-              "description": "Temperature"
+              "description": "Temperature",
+              "default": "4:celsius"
             }
           }
         },
@@ -109,7 +113,8 @@
             "end_product_temperature": {
               "type": "temperature",
               "label": "Temperature",
-              "description": "Temperature"
+              "description": "Temperature",
+              "default": "4:celsius"
             },
             "end_product_form": {
               "type": "choice",
@@ -191,7 +196,7 @@
             "base_volume": "10:milliliter"
           },
           "incubation_conditions": {
-            "incubation_time": "10:seconds",
+            "incubation_time": "10:second",
             "incubation_temperature": "4:celsius"
           },
           "end_product_storage": {
